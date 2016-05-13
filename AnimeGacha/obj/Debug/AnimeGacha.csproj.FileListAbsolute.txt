@@ -1,0 +1,11 @@
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\AnimeGacha.exe.config
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\AnimeGacha.exe
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\AnimeGacha.pdb
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.csprojResolveAssemblyReference.cache
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.Form1.resources
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.Properties.Resources.resources
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.csproj.GenerateResource.Cache
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.exe
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.pdb
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\Newtonsoft.Json.dll
+c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\Newtonsoft.Json.xml
