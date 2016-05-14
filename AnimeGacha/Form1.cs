@@ -25,30 +25,66 @@ namespace AnimeGacha
         }
 
         public async void SigleGacha(){
+            this.Text = "loading...";
             label1.Text = "loading...";
             label2.Text = "StartDay loding...";
+            label3.Text = "Searching...";
             pictureBox1.Image = (Image)Properties.Resources.loadanim;
-            var client = new System.Net.Http.HttpClient();
-            var s = await client.GetStringAsync("http://gatya.aokibazooka.net/api");
-            dynamic j = JsonConvert.DeserializeObject(s);
-            if (j.urls.Count > 0)
+            var anim = await this.GetAnimeAsync();
+            try
             {
-                Uri imgurl = j.urls[0];
-                try
-                {
-                    var img = await client.GetByteArrayAsync(imgurl);
-                    label1.Text = j.anime.name;
-                    label2.Text = "StartDay " + j.anime.startDay;
-                    if (img != null) pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(img);
-                }
-                catch
-                {
+                this.SetTitle(anim);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            label3.Text = "Finish";
+        }
+        
+        public void SetTitle(Anime anime)
+        {
+            this.Text = anime.title;
+            label1.Text = anime.title;
+            label2.Text = anime.startday;
+            pictureBox1.Image = anime.image;
+        }
 
-                }
+        public class Anime
+        {
+            public string title { get; private set; }
+            public string startday { get;private set;}
+            public Image image { get;private set; }
+
+            public Anime(string title,string startday,Image img)
+            {
+                this.title = title;
+                this.startday = startday;
+                this.image = img;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public async Task<Anime> GetAnimeAsync()
+        {
+            var client = new System.Net.Http.HttpClient();
+            var s = await client.GetStringAsync("http://gatya.aokibazooka.net/api");
+            dynamic j = JsonConvert.DeserializeObject(s);
+            Uri imgurl = j.urls[0];
+            if (j.urls.Count == 0) { return new Anime((string)j.anime.name + "x", (string)j.anime.startDay,null);throw new HttpListenerException(); }
+            try
+            {
+                var img = await client.GetByteArrayAsync(imgurl);
+                var imgConvereted = (Image)new ImageConverter().ConvertFrom(img);
+                return new Anime((string)j.anime.name, (string)j.anime.startDay, imgConvereted);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return new Anime("ERROR", "ERROR",null);
+            }
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
         {
             var otherwindow = Application.OpenForms.Cast<Form1>().Where(v => v != this).ToArray();
             foreach (var other in otherwindow)
@@ -59,12 +95,15 @@ namespace AnimeGacha
             for (int i = 0; i < 9; i++)
             {
                 var f = new Form1();
+                f.textBox1.Visible = false;
+                f.button3.Visible = false;
                 f.button1.Visible = false;
                 f.button2.Visible = false;
                 f.Click += (fs,fe) => f.Close();
                 f.pictureBox1.Click += (fs, fe) => f.Close();
                 f.Show();
-                f.SigleGacha();
+                var a = await f.GetAnimeAsync();
+                f.SetTitle(a);
             }
         }
 
@@ -76,6 +115,30 @@ namespace AnimeGacha
         private void Form1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+            string s = textBox1.Text;
+            EternalGatcha(s,f2,0);
+        }
+
+        public async void EternalGatcha(string name,Form2 f2,int count)
+        {
+            this.Text = "loading...";
+            label1.Text = "loading...";
+            label2.Text = "StartDay loding...";
+            var anim = await this.GetAnimeAsync();
+            this.SetTitle(anim);
+            if(anim.title != name)
+            {
+                count++;
+                f2.addList(anim.title);
+                label3.Text = count.ToString();
+                this.EternalGatcha(name, f2, count);
+            }
         }
     }
 }

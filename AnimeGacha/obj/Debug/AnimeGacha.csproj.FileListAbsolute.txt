@@ -9,3 +9,15 @@ c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\D
 c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\obj\Debug\AnimeGacha.pdb
 c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\Newtonsoft.Json.dll
 c:\users\rauzi\documents\visual studio 2013\Projects\AnimeGacha\AnimeGacha\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\bin\Debug\AnimeGacha.exe.config
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.exe
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.pdb
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\bin\Debug\AnimeGacha.exe
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\bin\Debug\AnimeGacha.pdb
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.csprojResolveAssemblyReference.cache
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.Form1.resources
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.Properties.Resources.resources
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.csproj.GenerateResource.Cache
+C:\Users\Rauzi\Documents\GitHub\AnimeGachaWindows\AnimeGacha\obj\Debug\AnimeGacha.Form2.resources
