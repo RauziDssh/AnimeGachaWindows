@@ -69,18 +69,21 @@ namespace AnimeGacha
             var client = new System.Net.Http.HttpClient();
             var s = await client.GetStringAsync("http://gatya.aokibazooka.net/api");
             dynamic j = JsonConvert.DeserializeObject(s);
-            Uri imgurl = j.urls[0];
-            if (j.urls.Count == 0) { return new Anime((string)j.anime.name + "x", (string)j.anime.startDay,null);throw new HttpListenerException(); }
-            try
+            if (j.urls.Count == 0) { return new Anime((string)j.anime.name, (string)j.anime.startDay, null); throw new HttpListenerException(); }
+            else
             {
-                var img = await client.GetByteArrayAsync(imgurl);
-                var imgConvereted = (Image)new ImageConverter().ConvertFrom(img);
-                return new Anime((string)j.anime.name, (string)j.anime.startDay, imgConvereted);
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                return new Anime("ERROR", "ERROR",null);
+                Uri imgurl = j.urls[0];
+                try
+                {
+                    var img = await client.GetByteArrayAsync(imgurl);
+                    var imgConvereted = (Image)new ImageConverter().ConvertFrom(img);
+                    return new Anime((string)j.anime.name, (string)j.anime.startDay, imgConvereted);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    return new Anime("ERROR", "ERROR", null);
+                }
             }
         }
 
@@ -127,9 +130,6 @@ namespace AnimeGacha
 
         public async void EternalGatcha(string name,Form2 f2,int count)
         {
-            this.Text = "loading...";
-            label1.Text = "loading...";
-            label2.Text = "StartDay loding...";
             var anim = await this.GetAnimeAsync();
             this.SetTitle(anim);
             if(anim.title != name)
